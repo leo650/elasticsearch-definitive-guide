@@ -54,7 +54,7 @@ GET /_search
 }
 --------------------------------------------------
 
-举个例子，你可以使用 `match` 查询((("match query"))) 来查询 `tweet` 字段中包含 `elasticsearch` 的 tweet：
+举个例子，你可以使用 `match` 查询语句((("match query"))) 来查询 `tweet` 字段中包含 `elasticsearch` 的 tweet：
 
 [source,js]
 --------------------------------------------------
