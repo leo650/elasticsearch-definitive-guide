@@ -1,6 +1,6 @@
 === 验证查询
 
-查询可以变得非常的复杂，尤其((("validate query API")))((("queries", "validating")))和不同的分析器与不同的字段映射结合的时，跟踪起来就有点难度了。然而 `validate-query` API 可以用来验证查询是否合法。
+查询可以变得非常的复杂，尤其((("validate query API")))((("queries", "validating")))和不同的分析器与不同的字段映射结合时，理解起来就有点困难了。然而 `validate-query` API 可以用来验证查询是否合法。
 
 [source,js]
 --------------------------------------------------
@@ -68,7 +68,7 @@ GET /gb/tweet/_validate/query?explain <1>
 
 ==== 理解查询语句
 
-对于合法查询，使用 `explain` 参数将返回可读性的描述，这对准确理解 Elasticsearch 是如何解析你的 query 是非常有用的：
+对于合法查询，使用 `explain` 参数将返回可读的描述，这对准确理解 Elasticsearch 是如何解析你的 query 是非常有用的：
 
 [source,js]
 --------------------------------------------------
@@ -103,6 +103,6 @@ GET /_validate/query?explain
 --------------------------------------------------
 
 
-从 `explanation` 中可以看出，匹配 `really powerful` 的 `match` 查询被重写为两个针对 `tweet` 字段的 single-term 查询，每个 term 对应一个查询。
+从 `explanation` 中可以看出，匹配 `really powerful` 的 `match` 查询被重写为两个针对 `tweet` 字段的 single-term 查询，一个single-term查询对应查询字符串分出来的一个term。
 
-当然，对于 `us` index ，这两个 term 分别是 `really` 和 `powerful` ，而对于 `gb` index ，term 则分别是 `realli` 和 `power` 。之所以出现这个情况，是由于我们将 `gb` index 中 `tweet` 字段的分析器修改为 `english` 分析器。
+当然，对于索引 `us` ，这两个 term 分别是 `really` 和 `powerful` ，而对于索引 `gb` ，term 则分别是 `realli` 和 `power` 。之所以出现这个情况，是由于我们将索引 `gb` 中 `tweet` 字段的分析器修改为 `english` 分析器。
