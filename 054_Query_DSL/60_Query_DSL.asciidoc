@@ -1,7 +1,7 @@
 [[query-dsl-intro]]
 === 查询表达式(query DSL)
 
-查询表达式(query DSL)是一种非常灵活又富有表现力的 ((("Query DSL"))) 查询语言。 Elasticsearch 使用它可以以简单的 JSON 接口来展现绝大部分强大 Lucene 功能。在你的应用中，你应该用它来编写你的查询语句。它可以使你的查询语句更灵活、更精确、易读和易调试。
+查询表达式(query DSL)是一种非常灵活又富有表现力的 ((("Query DSL"))) 查询语言。 Elasticsearch 使用它可以以简单的 JSON 接口来来展现 Lucene 功能的绝大部分。在你的应用中，你应该用它来编写你的查询语句。它可以使你的查询语句更灵活、更精确、易读和易调试。
 
 要使用这种查询表达式，只需将查询((("query parameter")))传递给 `query` 参数：
 
@@ -13,7 +13,7 @@ GET /_search
 }
 --------------------------------------------------
 
-_空查询（empty search）_ &#x2014;`{}`&#x2014; ((("empty search", "equivalent to match_all query clause"))) 在功能上等价与使用 `match_all` 查询，((("match_all query clause"))) 正如其名字一样，匹配所有文档：
+_空查询（empty search）_ &#x2014;`{}`&#x2014; ((("empty search", "equivalent to match_all query clause")))在功能上等价于使用 `match_all` 查询，((("match_all query clause"))) 正如其名字一样，匹配所有文档：
 
 [source,js]
 --------------------------------------------------
@@ -40,7 +40,7 @@ GET /_search
 }
 --------------------------------------------------
 
-如果是针对某个字段，那么它的结构：
+如果是针对某个字段，那么它的结构如下：
 
 [source,js]
 --------------------------------------------------
