@@ -1,3 +1,4 @@
+[[Validating-Queries]]
 === 验证查询
 
 查询可以变得非常的复杂，尤其((("validate query API")))((("queries", "validating")))和不同的分析器与不同的字段映射结合时，理解起来就有点困难了。然而 `validate-query` API 可以用来验证查询是否合法。
