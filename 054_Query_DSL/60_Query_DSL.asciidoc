@@ -26,6 +26,7 @@ GET /_search
 --------------------------------------------------
 // SENSE: 054_Query_DSL/60_Empty_query.json
 
+[[structure-of-a-query-clause]]
 ==== 查询语句的结构
 
 一个查询语句((("Query DSL", "structure of a query clause")))的典型结构：
@@ -80,6 +81,7 @@ GET /_search
 --------------------------------------------------
 // SENSE: 054_Query_DSL/60_Match_query.json
 
+[[combining-multiple-clauses]]
 ==== 合并查询语句
 
 _查询语句(Query clauses)_ 就像一些简单的组合块((("Query DSL", "combining multiple clauses")))，这些组合块可以彼此之间合并组成更复杂的查询。这些语句可以是如下形式：
