@@ -5,6 +5,7 @@ _简易_  查询 &#x2014;<<search-lite,query-string search>>&#x2014; 对于在�
 
 请求体查询 &#x2014;下文简称 _查询_&#x2014;不仅可以处理自身的查询请求，还允许你对结果进行片段强调（标红）、对所有或部分结果进行聚合分析，同时还可以给出 _你是不是想找_ 的建议，这些建议可以引导使用者快速找到他想要的结果。
 
+[[empty-search]]
 === 空查询（Empty search）
 
 让我们以((("request body search", "empty search")))((("empty search")))最简单的 `search` API 的形式开启我们的旅程， 空查询（empty search）将返回所有索引库（indices)中的所有文档：
