@@ -31,6 +31,7 @@ Elasticsearch 使用的查询语言（DSL）((("DSL (Domain Specific Language)",
 然而，为了明确和简单，我们用 "filter" 这个词表示不评分、只过滤情况下的查询。你可以把 "filter" 、 "filtering query" 和 "non-scoring query" 这几个词视为相同的。
 
 相似的，如果单独地不加任何修饰词地使用 "query" 这个词，我们指的是 "scoring query" 。
+====
 
 [[performance-differences]]
 ==== 性能差异（Performance Differences）
