@@ -26,7 +26,7 @@ Elasticsearch 使用的查询语言（DSL）((("DSL (Domain Specific Language)",
 
 [NOTE]
 ====
-自 Elasticsearch 问世以来，查询与过滤（queries and filters）就独自成为Elasticsearch的组件。但从Elasticsearch 2.0 开始，过滤（filters）已经从技术上被排除了，同时所有的查询（queries）拥有变成不评分查询的能力。
+自Elasticsearch问世以来，查询与过滤（queries and filters）就独自成为Elasticsearch的组件。但从Elasticsearch 2.0 开始，过滤（filters）已经从技术上被排除了，同时所有的查询（queries）拥有变成不评分查询的能力。
 
 然而，为了明确和简单，我们用 "filter" 这个词表示不评分、只过滤情况下的查询。你可以把 "filter" 、 "filtering query" 和 "non-scoring query" 这几个词视为相同的。
 
