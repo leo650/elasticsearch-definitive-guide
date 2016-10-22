@@ -1,7 +1,7 @@
 [[queries-and-filters]]
 === 查询与过滤（Queries and Filters）
 
- Elasticsearch 使用的查询语言（DSL）((("DSL (Domain Specific Language)", "Query and Filter DSL")))拥有一套查询组件，这些组件可以以无限组合的方式进行搭配。这套组件可以在以下两种情况下使用：过滤情况（filtering context）和查询情况（query context）。
+Elasticsearch 使用的查询语言（DSL）((("DSL (Domain Specific Language)", "Query and Filter DSL")))拥有一套查询组件，这些组件可以以无限组合的方式进行搭配。这套组件可以在以下两种情况下使用：过滤情况（filtering context）和查询情况（query context）。
 
 当使用于 _过滤情况_ 时，查询被设置成一个“不评分”或者“过滤”查询。即，这个查询只是简单的问一个问题：“这篇文档是否匹配？”。回答也是非常的简单，yes 或者 no ，二者必居其一。 
 
@@ -26,7 +26,7 @@
 
 [NOTE]
 ====
-自 Elasticsearch 问世以来，查询与过滤（queries and filters）就独自成为Elasticsearch的组件。但从 Elasticsearch 2.0 开始，过滤（filters）已经从技术上被排除了，同时所有的查询（queries）拥有变成不评分查询的能力。
+自 Elasticsearch 问世以来，查询与过滤（queries and filters）就独自成为 Elasticsearch 的组件。但从 Elasticsearch 2.0 开始，过滤（filters）已经从技术上被排除了，同时所有的查询（queries）拥有变成不评分查询的能力。
 
 然而，为了明确和简单，我们用 "filter" 这个词表示不评分、只过滤情况下的查询。你可以把 "filter" 、 "filtering query" 和 "non-scoring query" 这几个词视为相同的。
 
