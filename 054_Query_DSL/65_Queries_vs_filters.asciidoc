@@ -1,7 +1,7 @@
 [[queries-and-filters]]
 === 查询与过滤（Queries and Filters）
 
-Elasticsearch 使用的查询语言（DSL）((("DSL (Domain Specific Language)", "Query and Filter DSL")))拥有一套查询组件，这些组件可以以无限组合的方式进行搭配。这套组件可以在以下两种情况下使用：过滤情况（filtering context）和查询情况（query context）。
+ Elasticsearch 使用的查询语言（DSL）((("DSL (Domain Specific Language)", "Query and Filter DSL")))拥有一套查询组件，这些组件可以以无限组合的方式进行搭配。这套组件可以在以下两种情况下使用：过滤情况（filtering context）和查询情况（query context）。
 
 当使用于 _过滤情况_ 时，查询被设置成一个“不评分”或者“过滤”查询。即，这个查询只是简单的问一个问题：“这篇文档是否匹配？”。回答也是非常的简单，yes 或者 no ，二者必居其一。 
 
@@ -26,14 +26,14 @@ Elasticsearch 使用的查询语言（DSL）((("DSL (Domain Specific Language)",
 
 [NOTE]
 ====
-自Elasticsearch问世以来，查询与过滤（queries and filters）就独自成为Elasticsearch的组件。但从Elasticsearch 2.0 开始，过滤（filters）已经从技术上被排除了，同时所有的查询（queries）拥有变成不评分查询的能力。
+自 Elasticsearch 问世以来，查询与过滤（queries and filters）就独自成为Elasticsearch的组件。但从 Elasticsearch 2.0 开始，过滤（filters）已经从技术上被排除了，同时所有的查询（queries）拥有变成不评分查询的能力。
 
 然而，为了明确和简单，我们用 "filter" 这个词表示不评分、只过滤情况下的查询。你可以把 "filter" 、 "filtering query" 和 "non-scoring query" 这几个词视为相同的。
 
 相似的，如果单独地不加任何修饰词地使用 "query" 这个词，我们指的是 "scoring query" 。
 ====
 
-==== 性能差异（Performance Differences）
+==== 性能差异
 
 过滤查询（Filtering queries）只是简单的检查包含或者排除，这就使得计算起来非常快。考虑到至少有一个过滤查询（filtering query）的结果是 “稀少的”（很少匹配的文档），并且经常使用不评分查询（non-scoring queries），结果会被缓存到内存中以便快速读取，所以有各种各样的手段来优化查询结果。
 
@@ -43,6 +43,6 @@ Elasticsearch 使用的查询语言（DSL）((("DSL (Domain Specific Language)",
 
 过滤（filtering）的目标是减少那些需要通过评分查询（scoring queries）进行检查的文档。
 
-==== 如何选择（When to Use Which）
+==== 如何选择查询与过滤
 
 通常的规则是，使用((("filters", "when to use")))((("queries", "when to use")))查询（query）语句来进行 _全文_ 搜索或者其它任何需要影响 _相关性得分_ 的搜索。除此以外的情况都使用过滤（filters)。
