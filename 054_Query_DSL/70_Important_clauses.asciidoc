@@ -3,7 +3,6 @@
 
 虽然 Elastidsearch 自带了很多的查询，但经常用到的也就那么几个。我们将在 <<search-in-depth>> 章节详细讨论那些查询的细节，接下来我们对最重要的几个查询进行简单介绍。
 
-[[match_all-query]]
 ==== match_all 查询
 
 `match_all` 查询简单的((("match_all query")))((("queries", "important")))匹配所有文档。在没有指定查询方式时，它是默认的查询：
@@ -16,7 +15,6 @@
 
 它经常与 filter 结合使用--例如，检索收件箱里的所有邮件。所有邮件被认为具有相同的相关性，所以都将获得分值为 `1` 的中性 `_score`。 
 
-[[match-query]]
 ==== match 查询
 
 无论你在任何字段上进行的是全文搜索还是精确查询，`match` 查询是你可用的标准((("match query")))查询。 
@@ -44,7 +42,6 @@ TIP: 对于精确值的查询，你可能需要使用 filter 语句来取代 que
 
 不像我们在 <<search-lite>> 章节介绍的字符串查询（query-string search）， `match` 查询不使用类似 `+user_id:2 +tweet:search` 的查询语法。它只是去查找给定的单词。这就意味着将查询字段暴露给你的用户是安全的；你需要控制那些允许被查询字段，不易于抛出语法异常。 
 
-[[multi_match-query]]
 ==== multi_match 查询
 
 `multi_match` 查询可以((("multi_match queries")))在多个字段上执行相同的 `match` 查询：
@@ -61,7 +58,6 @@ TIP: 对于精确值的查询，你可能需要使用 filter 语句来取代 que
 // SENSE: 054_Query_DSL/70_Multi_match_query.json
 
 
-[[range-query]]
 ==== range 查询
 
 `range` 查询找出((("range query")))那些落在指定区间内的数字或者时间：
@@ -93,7 +89,6 @@ TIP: 对于精确值的查询，你可能需要使用 filter 语句来取代 que
  `lte`::
    小于等于
 
-[[term-query]]
 ==== term 查询
 
 `term` 查询被用于精确值((("query", "important")))((("term query")))匹配，这些精确值可能是数字、时间、布尔或者那些 `not_analyzed` 的字符串：
@@ -109,7 +104,6 @@ TIP: 对于精确值的查询，你可能需要使用 filter 语句来取代 que
 
 `term` 查询对于输入的文本不 _分析_ ，所以它将给定的值进行精确查询。
 
-[[terms-query]]
 ==== terms 查询
 
 `terms` 查询((("terms query")))和 `term` 查询一样，但它允许你指定多值进行匹配。如果这个字段包含了指定值中的任何一个值，那么这个文档满足条件：
@@ -122,7 +116,6 @@ TIP: 对于精确值的查询，你可能需要使用 filter 语句来取代 que
 
 和 `term` 查询一样，`terms` 查询对于输入的文本不分析。它查询那些精确匹配的值（包括在大小写、重音、空格等方面的差异）。
 
-[[exists-and-missing-queries]]
 ==== exists 查询和 missing 查询
 
 `exists` 查询和 `missing` 查询((("exists query")))((("missing query")))被用于查找那些指定字段中有值 (`exists`) 或无值 (`missing`) 的文档。这与SQL中的 `IS_NULL` (`missing`) 和 `NOT IS_NULL` (`exists`) 在本质上具有共性：
