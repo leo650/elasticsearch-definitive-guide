@@ -33,7 +33,6 @@ Elasticsearch 使用的查询语言（DSL）((("DSL (Domain Specific Language)",
 相似的，如果单独地不加任何修饰词地使用 "query" 这个词，我们指的是 "scoring query" 。
 ====
 
-[[performance-differences]]
 ==== 性能差异（Performance Differences）
 
 过滤查询（Filtering queries）只是简单的检查包含或者排除，这就使得计算起来非常快。考虑到至少有一个过滤查询（filtering query）的结果是 “稀少的”（很少匹配的文档），并且经常使用不评分查询（non-scoring queries），结果会被缓存到内存中以便快速读取，所以有各种各样的手段来优化查询结果。
@@ -44,7 +43,6 @@ Elasticsearch 使用的查询语言（DSL）((("DSL (Domain Specific Language)",
 
 过滤（filtering）的目标是减少那些需要通过评分查询（scoring queries）进行检查的文档。
 
-[[when-to-use-which]]
 ==== 如何选择（When to Use Which）
 
 通常的规则是，使用((("filters", "when to use")))((("queries", "when to use")))查询（query）语句来进行 _全文_ 搜索或者其它任何需要影响 _相关性得分_ 的搜索。除此以外的情况都使用过滤（filters)。
