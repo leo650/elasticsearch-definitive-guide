@@ -60,6 +60,6 @@ POST /_search
 
 *************************************************
 
-我们将在聚合  <<aggregations>> 章节深入介绍聚合（aggregations），而现在，我们将聚焦在查询。
+我们将在聚合 <<aggregations>> 章节深入介绍聚合（aggregations），而现在，我们将聚焦在查询。
 
-相对于使用晦涩难懂的查询字符串的方式，一个带请求体的查询允许我们使用 _查询领域特定语言（query domain-specific language）_ 或者 query DSL 来写查询语句。((("searching", "request body search", startref ="ix_reqbodysearch")))
+相对于使用晦涩难懂的查询字符串的方式，一个带请求体的查询允许我们使用 _查询领域特定语言（query domain-specific language）_ 或者 Query DSL 来写查询语句。((("searching", "request body search", startref ="ix_reqbodysearch")))
