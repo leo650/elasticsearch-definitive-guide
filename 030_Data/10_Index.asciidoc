@@ -1,11 +1,11 @@
 [[index-doc]]
 === 索引文档
 
-通过使用 `index` API ，可以索引、存储和搜索文档((("documents", "indexing")))((("indexing", "a document")))。但是首先，我们要确定文件的位置，正如我们刚刚讨论的，一个文档的 `_index` , `_type` , 和 `_id` 唯一标识一个文档。我们可以提供自定义的 `_id` 值，或者让 `index` API自动生成。
+可以使用 `index` API 来 _索引_ 文档&#x2014;实现文档的存储和可检索((("documents", "indexing")))((("indexing", "a document")))。但首先，我们要确定文档的位置，正如我们刚刚讨论的，一个文档的 `_index` , `_type` 和 `_id` 唯一标识这个文档。我们可以提供自己的 `_id` 值或由 `index` API自动生成。
 
-==== 使用自定义的 ID 
+==== 使用自己的 ID 
 
-如果你的文档有一个天然的((("id", "providing for a document")))标识符，（例如，一个 `user_account` 字段或者其他能标识文档的数值）你应该使用如下的 `index` API 形式来使用自定义的 `_id` ：
+如果你的文档有一个天然的((("id", "providing for a document")))标识符（例如，一个 `user_account` 或者其他能标识文档的字段值），你应该使用如下的 `index` API 形式来提供自己的 `_id` ：
 
 [role="pagebreak-before"]
 [source,js]
@@ -17,7 +17,7 @@ PUT /{index}/{type}/{id}
 }
 --------------------------------------------------
 
-举个例子，如果我们的索引称为 `website` ，类型称为 `blog` ，并且选择  `123` 作为 ID ，那么索引请求应该是下面这样：
+举个例子，假如我们的索引为 `website` ，类型称为 `blog` ，并且选择  `123` 作为 ID ，那么索引请求就像这样：
 
 [source,js]
 --------------------------------------------------
@@ -30,7 +30,7 @@ PUT /website/blog/123
 --------------------------------------------------
 // SENSE: 030_Data/10_Create_doc_123.json
 
-Elasticsearch响应体如下所示：
+Elasticsearch 响应如下：
 
 [source,js]
 --------------------------------------------------
@@ -44,13 +44,13 @@ Elasticsearch响应体如下所示：
 --------------------------------------------------
 
 
-该响应表明文档已经成功创建，该索引包括 `_index` , `_type` , 和 `_id` 元数据，以及一个新元素： `_version` 。((("version number (documents)")))
+该响应表明文档已经成功创建，该索引包括 `_index` , `_type` 和 `_id` 元数据，以及一个新元素： `_version` 。((("version number (documents)")))
 
-在 Elasticsearch 中每个文档都有一个版本号，当每次对文档进行修改时（包括删除）， `_version` 的值会递增，在<<version-control>>中，我们讨论怎样使用 `_version` 确保你的应用程序中的一部分改变不会覆盖另一部分所做的改变。
+在 Elasticsearch 中每个文档都有一个版本号，每次对文档进行修改时（包括删除）， `_version` 的值会递增，在<<version-control>>，我们将讨论如何使用 `_version` 确保你应用程序的一部分的修改不会覆盖另一部分所做的修改。
 
 ==== 自动生成 ID 
 
-如果你的数据没有天然的 ID， Elasticsearch 可以帮我们自动生成 ID 。((("id", "autogenerating")))请求的结构发生了改变：不再使用((("HTTP methods", "POST")))((("POST method"))) `PUT` 谓词(``存储这个文档在这个 URL 中'')。我们使用 `POST` 谓词 (``存储这个文档在这个URL下'')。
+如果你的数据没有天然的 ID， Elasticsearch 可以帮我们自动生成 ID 。((("id", "autogenerating")))只是请求的结构发生了变化：不再用((("HTTP methods", "POST")))((("POST method"))) `PUT` 谓词(``将文档放置在 URL 中'')，我们用 `POST` 谓词(``将文档放置在 URL _之外_'')。
 
 现在该 URL 只需包含 `_index` 和 `_type` :
 
@@ -65,7 +65,7 @@ POST /website/blog/
 --------------------------------------------------
 // SENSE: 030_Data/10_Create_doc_auto_ID.json
 
-除了 `_id` 是 Elasticsearch 自动生成的，这个响应和以前我们看到的类似：
+除了 `_id` 是 Elasticsearch 自动生成的，响应和我们之前看到的类似：
 
 [source,js]
 --------------------------------------------------
@@ -78,4 +78,4 @@ POST /website/blog/
 }
 --------------------------------------------------
 
-自动生成的 ID 长度为20个字符，是 URL 安全的，基于 Base64 编码的 GUID 字符串。这些 GUID 字符串由可修改的 FlakeID 模式生成，这种模式允许多个节点并行生成唯一 ID ，且互相之间的冲突概率几乎为零。
+自动生成的 ID 长度为20个字符，是 URL 安全的，基于 Base64 编码的 GUID 字符串。这些 GUID 字符串由修改的 FlakeID 体系生成，它允许多个节点同时生成唯一 ID ，且互相之间的冲突概率几乎为零。
