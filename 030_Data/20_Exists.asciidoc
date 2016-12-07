@@ -1,7 +1,7 @@
 [[doc-exists]]
 === 检查文档是否存在
 
-如果你想要检查一个文档是否存在((("documents", "checking whether a document exists")))--你根本不想关心内容，那么直接用((("HEAD method")))((("HTTP methods", "HEAD"))) HEAD 方法来代替GET方法。HEAD 请求没有返回体，只返回一个 HTTP 请求报头：
+如果你只想检查一个文档是否存在((("documents", "checking whether a document exists")))--你根本不想关心内容--那么用((("HEAD method")))((("HTTP methods", "HEAD"))) `HEAD` 方法来代替 `GET` 方法。 `HEAD` 请求没有返回体，只返回一个 HTTP 请求报头：
 
 [source,js]
 --------------------------------------------------
@@ -31,4 +31,4 @@ Content-Type: text/plain; charset=UTF-8
 Content-Length: 0
 --------------------------------------------------
 
-当然，当你检查一个文档时它是不存在的，但是不意味着一毫秒之后它不存在：也许另一个进程在你检查文档的同时就创建了这个文档。
+当然，当你检查一个文档时它不存在，不意味着一毫秒之后它不存在：也许在同一时间另一个进程就创建了这个文档。
