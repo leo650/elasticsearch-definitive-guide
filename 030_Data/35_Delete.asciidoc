@@ -1,7 +1,7 @@
 [[delete-doc]]
 === 删除文档
 
-删除文档((("documents", "deleting")))的语法与创建文档时模式一致，但是((("DELETE method", "deleting documents")))((("HTTP methods", "DELETE")))使用 `DELETE` 方法进行删除：
+删除文档((("documents", "deleting")))的语法和我们所知道的规则相同，只是((("DELETE method", "deleting documents")))((("HTTP methods", "DELETE")))使用 `DELETE` 方法：
 
 [source,js]
 --------------------------------------------------
@@ -9,7 +9,7 @@ DELETE /website/blog/123
 --------------------------------------------------
 // SENSE: 030_Data/35_Delete_doc.json
 
-如果找到该文档，Elasticsearch 将要返回一个 `200 ok` 的 HTTP 响应码，和一个类似以下结构的响应体。注意，字段 `_version` 已经增加:
+如果找到该文档，Elasticsearch 将要返回一个 `200 ok` 的 HTTP 响应码，和一个类似以下结构的响应体。注意，字段 `_version` 值已经增加:
 
 [source,js]
 --------------------------------------------------
@@ -22,7 +22,7 @@ DELETE /website/blog/123
 }
 --------------------------------------------------
 
-如果文档没有找到，我们将会收到 `404 Not Found` 的响应码和类似这样的响应体：
+如果文档没有((("version number (documents)", "incremented for document not found")))找到，我们将得到 `404 Not Found` 的响应码和类似这样的响应体：
 
 [source,js]
 --------------------------------------------------
@@ -35,7 +35,6 @@ DELETE /website/blog/123
 }
 --------------------------------------------------
 
-即使文档不存在， ` _version` 字段仍然会增加。这是 Elasticsearch 内部记录本的一部分，用来确保这些改变在跨多个节点时以正确的顺序得到执行。
+即使文档不存在（ `发现了` 是 `错误的` ）， ` _version` 值仍然会增加。这是 Elasticsearch 内部记录本的一部分，用来确保这些改变在跨多节点时以正确的顺序执行。
 
-注意：像之前在<<update-doc>>中提到的一样，删除文档也不会马上将文档从磁盘中删掉，只是做了一个删除的标记。当你不断的索引更多的数据，Elasticsearch 将会在后台清理标记为已删除的文档，以便于在索引新数据时提供资源等支持。
-
+NOTE:正如已经在<<update-doc>>中提到的，删除文档不会立即将文档从磁盘中删掉，只是将文档标记为已删除状态。随着你不断的索引更多的数据，Elasticsearch 将会在后台清理标记为已删除的文档。
